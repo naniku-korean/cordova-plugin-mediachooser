@@ -1,6 +1,6 @@
 # Cordova MediaChooser Plugin
 
-By Using open source[learnNcode/MediaChooser](https://github.com/learnNcode/MediaChooser) cordova plugin.
+By Using open source [learnNcode/MediaChooser](https://github.com/learnNcode/MediaChooser) cordova plugin.
 
 ## Using
 Install the plugin
