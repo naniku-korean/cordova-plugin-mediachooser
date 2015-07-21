@@ -1,6 +1,6 @@
 # Cordova MediaChooser Plugin
 
-By Using open source(https://github.com/learnNcode/MediaChooser) cordova plugin.
+By Using open source[learnNcode/MediaChooser](https://github.com/learnNcode/MediaChooser) cordova plugin.
 
 ## Using
 Install the plugin
@@ -53,9 +53,3 @@ Uninstall the plugin
 
     cordova plugin remove com.media_chooser
     
-
-## More Info
-
-For more information on setting up Cordova see [the documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html#The%20Command-Line%20Interface)
-
-For more info on plugins see the [Plugin Development Guide](http://cordova.apache.org/docs/en/4.0.0/guide_hybrid_plugins_index.md.html#Plugin%20Development%20Guide)
