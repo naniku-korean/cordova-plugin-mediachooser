@@ -1,46 +1,58 @@
 # Cordova MediaChooser Plugin
 
-https://github.com/learnNcode/MediaChooser
-
-Greeting a user with "Hello, world" is something that could be done in JavaScript. This plugin provides a simple example demonstrating how Cordova plugins work.
+By Using open source(https://github.com/learnNcode/MediaChooser) cordova plugin.
 
 ## Using
-Clone the plugin
-
-    $ git clone https://github.com/don/cordova-plugin-hello.git
-
-Create a new Cordova Project
-
-    $ cordova create hello com.example.helloapp Hello
-    
 Install the plugin
 
-    $ cd hello
-    $ cordova plugin add ../cordova-plugin-hello
+    $ cordova plugin add https://github.com/naniku-korean/cordova-plugin-mediachooser
     
-
 Edit `www/js/index.js` and add the following code inside `onDeviceReady`
 
 ```js
-    var success = function(message) {
-        alert(message);
+    /* 
+        callbackFunction parameter structure
+        @ type Object
+        @ usecase 
+          1. success
+            { value: true, cancelled: true, paths: ["filePath1", "filePath2", ...] }
+          2. success (user cancel)
+            { value: true, cancelled: true }
+          3. error
+            { value: false }
+    */
+    var success = function(data) {
+        alert("success = " + data.value);
     }
 
-    var failure = function() {
-        alert("Error calling Hello Plugin");
+    var failure = function(data) {
+        alert("error = " + data.value);
     }
-
-    hello.greet("World", success, failure);
+    /* 
+        getPictures options
+        @ type Object
+        @ usecase 
+          {
+            imageSize:  10,
+            videoSize: 10,
+            selectionLimit: 10
+          }
+    */
+    var chooserOpt = {
+        imageSize:  10,
+        videoSize: 10,
+        selectionLimit: 10
+    };
+    mediachooser.getPictures(chooserOpt, success, failure);
 ```
-
-Install iOS or Android platform
-
-    cordova platform add ios
-    cordova platform add android
-    
 Run the code
 
-    cordova run 
+    cordova run android
+    
+Uninstall the plugin
+
+    cordova plugin remove com.media_chooser
+    
 
 ## More Info
 
