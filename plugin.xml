@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.media_chooser"
+        version="0.7.0">
+
+    <name>MediaSelector</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.4.0"/>
+    </engines>
+
+    <asset src="www/mediachooser.js" target="js/mediachooser.js"/>
+    <js-module src="www/mediachooser.js" name="mediachooser">
+        <clobbers target="mediachooser" />
+    </js-module>
+
+  <platform name="android">
+
+      <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="MediaSelector">
+              <param name="android-package" value="com.learnncode.mediachooser.sample.MediaSelector"/>
+          </feature>
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/manifest/application">
+          <activity android:label="MediaSelector" android:name="com.learnncode.mediachooser.sample.MainActivity"
+                  android:screenOrientation="portrait">
+          </activity>
+          <activity
+                  android:name="com.learnncode.mediachooser.activity.BucketHomeFragmentActivity"
+                  android:screenOrientation="portrait" >
+          </activity>
+          <activity
+                  android:name="com.learnncode.mediachooser.activity.HomeFragmentActivity"
+                  android:screenOrientation="portrait" >
+          </activity>
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/manifest">
+          <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+      </config-file>
+
+      <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs"/>
+      <source-file src="src/android/libs/picasso-2.4.0.jar" target-dir="libs"/>
+
+      <source-file src="src/android/src/com/learnncode" target-dir="src/com/"/>
+
+      <source-file src="src/android/res/drawable/selector_camera_button.xml" target-dir="res/drawable"/>
+      <source-file src="src/android/res/drawable/selector_check.xml" target-dir="res/drawable"/>
+      <source-file src="src/android/res/drawable/selector_video_button.xml" target-dir="res/drawable"/>
+      <source-file src="src/android/res/drawable/tab_selected.xml" target-dir="res/drawable"/>
+      <source-file src="src/android/res/drawable/tab_selector.xml" target-dir="res/drawable"/>
+      <source-file src="src/android/res/drawable/tab_unselected.xml" target-dir="res/drawable"/>
+
+      <source-file src="src/android/res/drawable-hdpi/ic_camera_selected_from_media_chooser_header_bar.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_camera_unselect_from_media_chooser_header_bar.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_launcher.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_loading.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_navigation_left_from_media_chooser_header_bar.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_selected_check_box_from_media_chooser_header_bar.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_unselected_check_box_from_media_chooser_header_bar.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_video.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_video_selected_from_media_chooser_header_bar.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/res/drawable-hdpi/ic_video_unselect_from_media_chooser_header_bar.png" target-dir="res/drawable-hdpi"/>
+
+      <source-file src="src/android/res/drawable-mdpi/ic_camera_selected_from_media_chooser_header_bar.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_camera_unselect_from_media_chooser_header_bar.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_launcher.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_loading.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_navigation_left_from_media_chooser_header_bar.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_selected_check_box_from_media_chooser_header_bar.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_unselected_check_box_from_media_chooser_header_bar.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_video.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_video_selected_from_media_chooser_header_bar.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/res/drawable-mdpi/ic_video_unselect_from_media_chooser_header_bar.png" target-dir="res/drawable-mdpi"/>
+
+      <source-file src="src/android/res/drawable-xhdpi/ic_camera_selected_from_media_chooser_header_bar.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_camera_unselect_from_media_chooser_header_bar.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_launcher.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_loading.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_navigation_left_from_media_chooser_header_bar.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_selected_check_box_from_media_chooser_header_bar.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_unselected_check_box_from_media_chooser_header_bar.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_video.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_video_selected_from_media_chooser_header_bar.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/res/drawable-xhdpi/ic_video_unselect_from_media_chooser_header_bar.png" target-dir="res/drawable-xhdpi"/>
+
+      <source-file src="src/android/res/drawable-xxhdpi/ic_camera_selected_from_media_chooser_header_bar.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_camera_unselect_from_media_chooser_header_bar.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_launcher.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_loading.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_navigation_left_from_media_chooser_header_bar.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_selected_check_box_from_media_chooser_header_bar.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_unselected_check_box_from_media_chooser_header_bar.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_video.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_video_selected_from_media_chooser_header_bar.png" target-dir="res/drawable-xxhdpi"/>
+      <source-file src="src/android/res/drawable-xxhdpi/ic_video_unselect_from_media_chooser_header_bar.png" target-dir="res/drawable-xxhdpi"/>
+
+      <source-file src="src/android/res/layout/activity_home_media_chooser.xml" target-dir="res/layout"/>
+      <source-file src="src/android/res/layout/activity_main.xml" target-dir="res/layout"/>
+      <source-file src="src/android/res/layout/view_grid_bucket_item_media_chooser.xml" target-dir="res/layout"/>
+      <source-file src="src/android/res/layout/view_grid_item.xml" target-dir="res/layout"/>
+      <source-file src="src/android/res/layout/view_grid_item_media_chooser.xml" target-dir="res/layout"/>
+      <source-file src="src/android/res/layout/view_grid_layout_media_chooser.xml" target-dir="res/layout"/>
+      <source-file src="src/android/res/layout/view_header_bar_media_chooser.xml" target-dir="res/layout"/>
+      <source-file src="src/android/res/layout/view_loading_media_chooser.xml" target-dir="res/layout"/>
+
+      <source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
+      <source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
+      <source-file src="src/android/res/values/strings.xml" target-dir="res/values"/>
+      <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
+
+      <source-file src="src/android/res/values-sw600dp/dimens.xml" target-dir="res/values-sw600dp"/>
+      <source-file src="src/android/res/values-sw720dp-land/dimens.xml" target-dir="res/values-sw720dp-land"/>
+
+      <source-file src="src/android/res/values-v11/styles.xml" target-dir="res/values-v11"/>
+      <source-file src="src/android/res/values-v14/styles.xml" target-dir="res/values-v14"/>
+
+
+
+      <!--<source-file src="src/android/mediaChooser-sample/src/com/learnncode/mediachooser/sample/MediaSelector.java"
+                   target-dir="src/com/learnncode/mediachooser/sample"/>
+      <source-file src="src/android/mediaChooser-sample/src/com/learnncode/mediachooser/sample/MediaActivity.java"
+                   target-dir="src/com/learnncode/mediachooser/sample"/>
+      <source-file src="src/android/mediaChooser-sample/src/com/learnncode/mediachooser/sample/MediaGridViewAdapter.java"
+                   target-dir="src/com/learnncode/mediachooser/sample"/>
+      <source-file src="src/android/mediaChooser-sample/src/com/learnncode/mediachooser/sample/Utility.java"
+                   target-dir="src/com/learnncode/mediachooser/sample"/>
+      &lt;!&ndash;img &ndash;&gt;
+      <source-file src="src/android/mediaChooser-sample/res/drawable-hdpi/ic_video.png" target-dir="res/drawable-hdpi"/>
+      <source-file src="src/android/mediaChooser-sample/res/drawable-mdpi/ic_video.png" target-dir="res/drawable-mdpi"/>
+      <source-file src="src/android/mediaChooser-sample/res/drawable-xhdpi/ic_video.png" target-dir="res/drawable-xhdpi"/>
+      <source-file src="src/android/mediaChooser-sample/res/drawable-xxhdpi/ic_video.png" target-dir="res/drawable-xxhdpi"/>
+      &lt;!&ndash;layout &ndash;&gt;
+      <source-file src="src/android/mediaChooser-sample/res/layout/activity_main.xml" target-dir="res/layout"/>
+      <source-file src="src/android/mediaChooser-sample/res/layout/view_grid_item.xml" target-dir="res/layout"/>
+      &lt;!&ndash; values &ndash;&gt;
+      <source-file src="src/android/mediaChooser-sample/res/values-mdpi/dimens.xml" target-dir="res/values"/>
+      <source-file src="src/android/mediaChooser-sample/res/values-mdpi/styles.xml" target-dir="res/values"/>-->
+
+
+  </platform>
+
+</plugin>
