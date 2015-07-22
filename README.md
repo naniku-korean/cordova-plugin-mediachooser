@@ -16,7 +16,7 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
         @ type Object
         @ usecase 
           1. success
-            { value: true, cancelled: true, paths: ["filePath1", "filePath2", ...] }
+            { value: true, cancelled: false, paths: ["filePath1", "filePath2", ...] }
           2. success (user cancel)
             { value: true, cancelled: true }
           3. error

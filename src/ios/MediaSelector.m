@@ -30,18 +30,14 @@
     [self.commandDelegate runInBackground:^{
         CDVPluginResult* result        = nil;
         NSMutableArray *resultStrings  = [[NSMutableArray alloc] init];
-        NSData* data                   = nil;
         NSString* docsPath             = [NSTemporaryDirectory()stringByStandardizingPath];
-        NSError* err                   = nil;
         NSFileManager* fileMgr         = [[NSFileManager alloc] init];
         ALAsset* asset                 = nil;
-        UIImageOrientation orientation = UIImageOrientationUp;
-        CGSize targetSize              = CGSizeMake(2048, 2048);
         NSString* filePath;
 
-        for (ALAsset *asset in assets) {
+        for (asset in assets) {
 		
-            int i = 1;
+            int i = 0;
             do {
 				if( [[asset valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"] ){
 					filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"jpg"];
@@ -50,23 +46,17 @@
 				}
                 
             } while ([fileMgr fileExistsAtPath:filePath]);
-
-            @autoreleasepool {
-                ALAssetRepresentation *assetRep = [asset defaultRepresentation];
-                CGImageRef imgRef = NULL;
-
-                if (![data writeToFile:filePath options:NSAtomicWrite error:&err]) {
-                    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_IO_EXCEPTION messageAsString:[err localizedDescription]];
-                    break;
-                } else {
-                    [resultStrings addObject:[[NSURL fileURLWithPath:filePath] absoluteString]];
-                }
-            }
-
+            
+            [resultStrings addObject:[[NSURL fileURLWithPath:filePath] absoluteString]];
         }
-
-        if (nil == result) {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:resultStrings];
+        
+        if ([resultStrings count] > 0) {
+            NSString* complete = [resultStrings componentsJoinedByString:@", "];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:
+                      [NSString stringWithFormat:@"{ value: true, cancelled: false, paths: [ %@ ]}", complete]];
+        } else {
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:
+                      @"{ value: false }"];
         }
 
         [self.viewController dismissViewControllerAnimated:YES completion:nil];
