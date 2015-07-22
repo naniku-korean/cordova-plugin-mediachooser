@@ -34,8 +34,8 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
         @ type Object
         @ usecase 
           {
-            imageSize:  10,
-            videoSize: 10,
+            imageSize:  10,   <-- MB
+            videoSize: 10,    <-- MB
             selectionLimit: 10
           }
     */
