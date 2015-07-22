@@ -157,49 +157,6 @@
         <resource-file src="src/ios/vendor/resources/UzysAssetsPickerController.xib"/>
         <resource-file src="src/ios/vendor/resources/UzysAssetPickerController.bundle"/>
 
-        <header-file src="src/ios/JHMultipleImagesPicker.h"/>
-        <source-file src="src/ios/JHMultipleImagesPicker.m"/>
-    </platform>
-    <platform name="ios">
-        <config-file target="config.xml" parent="/*">
-            <feature name="MultipleImagesPicker">
-                <param name="ios-package" value="JHMultipleImagesPicker"/>
-            </feature>
-        </config-file>
-
-        <framework src="Foundation.framework"/>
-        <framework src="QuartzCore.framework"/>
-        <framework src="MobileCoreServices.framework"/>
-        <framework src="AVFoundation.framework"/>
-        <framework src="AssetsLibrary.framework"/>
-        <framework src="CoreGraphics.framework"/>
-
-        <header-file src="src/ios/vendor/UIImage+UzysExtension.h"/>
-        <source-file src="src/ios/vendor/UIImage+UzysExtension.m"/>
-
-        <header-file src="src/ios/vendor/UzysAppearanceConfig.h"/>
-        <source-file src="src/ios/vendor/UzysAppearanceConfig.m"/>
-
-        <header-file src="src/ios/vendor/UzysAssetsPickerController.h"/>
-        <source-file src="src/ios/vendor/UzysAssetsPickerController.m"/>
-
-        <header-file src="src/ios/vendor/UzysAssetsPickerController_Configuration.h"/>
-
-        <header-file src="src/ios/vendor/UzysAssetsViewCell.h"/>
-        <source-file src="src/ios/vendor/UzysAssetsViewCell.m"/>
-
-        <header-file src="src/ios/vendor/UzysGroupPickerView.h"/>
-        <source-file src="src/ios/vendor/UzysGroupPickerView.m"/>
-
-        <header-file src="src/ios/vendor/UzysGroupViewCell.h"/>
-        <source-file src="src/ios/vendor/UzysGroupViewCell.m"/>
-
-        <header-file src="src/ios/vendor/UzysWrapperPickerController.h"/>
-        <source-file src="src/ios/vendor/UzysWrapperPickerController.m"/>
-
-        <resource-file src="src/ios/vendor/resources/UzysAssetsPickerController.xib"/>
-        <resource-file src="src/ios/vendor/resources/UzysAssetPickerController.bundle"/>
-
         <header-file src="src/ios/MediaSelector.h"/>
         <source-file src="src/ios/MediaSelector.m"/>
     </platform>  
