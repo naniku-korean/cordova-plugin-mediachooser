@@ -116,29 +116,91 @@
       <source-file src="src/android/res/values-v11/styles.xml" target-dir="res/values-v11"/>
       <source-file src="src/android/res/values-v14/styles.xml" target-dir="res/values-v14"/>
 
-
-
-      <!--<source-file src="src/android/mediaChooser-sample/src/com/learnncode/mediachooser/sample/MediaSelector.java"
-                   target-dir="src/com/learnncode/mediachooser/sample"/>
-      <source-file src="src/android/mediaChooser-sample/src/com/learnncode/mediachooser/sample/MediaActivity.java"
-                   target-dir="src/com/learnncode/mediachooser/sample"/>
-      <source-file src="src/android/mediaChooser-sample/src/com/learnncode/mediachooser/sample/MediaGridViewAdapter.java"
-                   target-dir="src/com/learnncode/mediachooser/sample"/>
-      <source-file src="src/android/mediaChooser-sample/src/com/learnncode/mediachooser/sample/Utility.java"
-                   target-dir="src/com/learnncode/mediachooser/sample"/>
-      &lt;!&ndash;img &ndash;&gt;
-      <source-file src="src/android/mediaChooser-sample/res/drawable-hdpi/ic_video.png" target-dir="res/drawable-hdpi"/>
-      <source-file src="src/android/mediaChooser-sample/res/drawable-mdpi/ic_video.png" target-dir="res/drawable-mdpi"/>
-      <source-file src="src/android/mediaChooser-sample/res/drawable-xhdpi/ic_video.png" target-dir="res/drawable-xhdpi"/>
-      <source-file src="src/android/mediaChooser-sample/res/drawable-xxhdpi/ic_video.png" target-dir="res/drawable-xxhdpi"/>
-      &lt;!&ndash;layout &ndash;&gt;
-      <source-file src="src/android/mediaChooser-sample/res/layout/activity_main.xml" target-dir="res/layout"/>
-      <source-file src="src/android/mediaChooser-sample/res/layout/view_grid_item.xml" target-dir="res/layout"/>
-      &lt;!&ndash; values &ndash;&gt;
-      <source-file src="src/android/mediaChooser-sample/res/values-mdpi/dimens.xml" target-dir="res/values"/>
-      <source-file src="src/android/mediaChooser-sample/res/values-mdpi/styles.xml" target-dir="res/values"/>-->
-
-
   </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MultipleImagesPicker">
+                <param name="ios-package" value="JHMultipleImagesPicker"/>
+            </feature>
+        </config-file>
 
+        <framework src="Foundation.framework"/>
+        <framework src="QuartzCore.framework"/>
+        <framework src="MobileCoreServices.framework"/>
+        <framework src="AVFoundation.framework"/>
+        <framework src="AssetsLibrary.framework"/>
+        <framework src="CoreGraphics.framework"/>
+
+        <header-file src="src/ios/vendor/UIImage+UzysExtension.h"/>
+        <source-file src="src/ios/vendor/UIImage+UzysExtension.m"/>
+
+        <header-file src="src/ios/vendor/UzysAppearanceConfig.h"/>
+        <source-file src="src/ios/vendor/UzysAppearanceConfig.m"/>
+
+        <header-file src="src/ios/vendor/UzysAssetsPickerController.h"/>
+        <source-file src="src/ios/vendor/UzysAssetsPickerController.m"/>
+
+        <header-file src="src/ios/vendor/UzysAssetsPickerController_Configuration.h"/>
+
+        <header-file src="src/ios/vendor/UzysAssetsViewCell.h"/>
+        <source-file src="src/ios/vendor/UzysAssetsViewCell.m"/>
+
+        <header-file src="src/ios/vendor/UzysGroupPickerView.h"/>
+        <source-file src="src/ios/vendor/UzysGroupPickerView.m"/>
+
+        <header-file src="src/ios/vendor/UzysGroupViewCell.h"/>
+        <source-file src="src/ios/vendor/UzysGroupViewCell.m"/>
+
+        <header-file src="src/ios/vendor/UzysWrapperPickerController.h"/>
+        <source-file src="src/ios/vendor/UzysWrapperPickerController.m"/>
+
+        <resource-file src="src/ios/vendor/resources/UzysAssetsPickerController.xib"/>
+        <resource-file src="src/ios/vendor/resources/UzysAssetPickerController.bundle"/>
+
+        <header-file src="src/ios/JHMultipleImagesPicker.h"/>
+        <source-file src="src/ios/JHMultipleImagesPicker.m"/>
+    </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MultipleImagesPicker">
+                <param name="ios-package" value="JHMultipleImagesPicker"/>
+            </feature>
+        </config-file>
+
+        <framework src="Foundation.framework"/>
+        <framework src="QuartzCore.framework"/>
+        <framework src="MobileCoreServices.framework"/>
+        <framework src="AVFoundation.framework"/>
+        <framework src="AssetsLibrary.framework"/>
+        <framework src="CoreGraphics.framework"/>
+
+        <header-file src="src/ios/vendor/UIImage+UzysExtension.h"/>
+        <source-file src="src/ios/vendor/UIImage+UzysExtension.m"/>
+
+        <header-file src="src/ios/vendor/UzysAppearanceConfig.h"/>
+        <source-file src="src/ios/vendor/UzysAppearanceConfig.m"/>
+
+        <header-file src="src/ios/vendor/UzysAssetsPickerController.h"/>
+        <source-file src="src/ios/vendor/UzysAssetsPickerController.m"/>
+
+        <header-file src="src/ios/vendor/UzysAssetsPickerController_Configuration.h"/>
+
+        <header-file src="src/ios/vendor/UzysAssetsViewCell.h"/>
+        <source-file src="src/ios/vendor/UzysAssetsViewCell.m"/>
+
+        <header-file src="src/ios/vendor/UzysGroupPickerView.h"/>
+        <source-file src="src/ios/vendor/UzysGroupPickerView.m"/>
+
+        <header-file src="src/ios/vendor/UzysGroupViewCell.h"/>
+        <source-file src="src/ios/vendor/UzysGroupViewCell.m"/>
+
+        <header-file src="src/ios/vendor/UzysWrapperPickerController.h"/>
+        <source-file src="src/ios/vendor/UzysWrapperPickerController.m"/>
+
+        <resource-file src="src/ios/vendor/resources/UzysAssetsPickerController.xib"/>
+        <resource-file src="src/ios/vendor/resources/UzysAssetPickerController.bundle"/>
+
+        <header-file src="src/ios/MediaSelector.h"/>
+        <source-file src="src/ios/MediaSelector.m"/>
+    </platform>  
 </plugin>
