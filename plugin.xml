@@ -125,7 +125,7 @@
         </config-file>
 
         <framework src="Foundation.framework"/>
-        <framework src="QuartzCore.framework"/>
+        <framework src="UIKit.framework"/>
         <framework src="MobileCoreServices.framework"/>
         <framework src="AVFoundation.framework"/>
         <framework src="AssetsLibrary.framework"/>
