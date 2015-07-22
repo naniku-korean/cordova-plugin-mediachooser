@@ -119,8 +119,8 @@
   </platform>
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="MultipleImagesPicker">
-                <param name="ios-package" value="JHMultipleImagesPicker"/>
+            <feature name="MediaSelector">
+                <param name="ios-package" value="MediaSelector"/>
             </feature>
         </config-file>
 
