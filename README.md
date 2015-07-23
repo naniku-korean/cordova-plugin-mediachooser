@@ -1,6 +1,8 @@
 # Cordova MediaChooser Plugin
 
-By Using open source <[learnNcode/MediaChooser](https://github.com/learnNcode/MediaChooser)>
+By Using open source <[learnNcode/MediaChooser](https://github.com/learnNcode/MediaChooser)> on Android
+
+By Using open source <[uzysjung/UzysAssetsPickerController](https://github.com/uzysjung/UzysAssetsPickerController)> on iOS
 
 
 ## Using - Android, iOS
