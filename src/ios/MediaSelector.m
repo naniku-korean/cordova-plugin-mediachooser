@@ -64,4 +64,20 @@
     }];
 }
 
+- (void)uzysAssetsPickerControllerDidExceedMaximumNumberOfSelection:(UzysAssetsPickerController *)picker {
+    NSString* resultString = [NSString stringWithFormat:@"Exceed Maximum number of Selection (%ld)", (long)self.maximumNumberOfSelectionMedia];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:resultString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [alert show];
+}
+
+- (void)uzysAssetsPickerControllerDidCancel:(UzysAssetsPickerController *)picker {
+    CDVPluginResult* result;
+    //user cancel
+    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:
+              @"{ value: true, cancelled: false }"];
+    
+    [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+}
+
 @end
