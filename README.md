@@ -3,7 +3,7 @@
 By Using open source <[learnNcode/MediaChooser](https://github.com/learnNcode/MediaChooser)>
 
 
-## Using
+## Using - Android, iOS
 Install the plugin
 
     $ cordova plugin add https://github.com/naniku-korean/cordova-plugin-mediachooser
@@ -13,8 +13,8 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
 ```js
     /* 
         callbackFunction parameter structure
-        @ type Object
-        @ usecase 
+        @ type Object<android> or String<iOS>
+        @ usecase
           1. success
             { value: true, cancelled: false, paths: ["filePath1", "filePath2", ...] }
           2. success (user cancel)
@@ -29,8 +29,9 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
     var failure = function(data) {
         alert("error = " + data.value);
     }
-    /* 
+    /*
         getPictures options
+        @ os Android
         @ type Object
         @ usecase 
           {
@@ -38,17 +39,32 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
             videoSize: 10,    <-- MB
             selectionLimit: 10
           }
+
+        getPictures options
+        @ os iOS
+        @ type integer
+        @ usecase
+          var selectionLimit: 10
     */
+    // Android
     var chooserOpt = {
         imageSize:  10,
         videoSize: 10,
         selectionLimit: 10
     };
     mediachooser.getPictures(chooserOpt, success, failure);
+
+    //iOS
+    var selectionLimit = 10;
+    mediachooser.getPictures(selectionLimit, success, failure);
 ```
 Run the code
 
+    // android
     cordova run android
+
+    // iOS
+    cordova run ios
     
 Uninstall the plugin
 
