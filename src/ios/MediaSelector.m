@@ -46,7 +46,7 @@
               }
                 
             } while ([fileMgr fileExistsAtPath:filePath]);
-            NSString* nPath = [NSString stringWidthFormat: @"\"%@\"", [[NSURL fileURLWithPath:filePath] absoluteString]];
+            NSString* nPath = [NSString stringWithFormat: @"\"%@\"", [[NSURL fileURLWithPath:filePath] absoluteString]];
             [resultStrings addObject:nPath];
         }
         
