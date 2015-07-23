@@ -34,10 +34,10 @@
         NSFileManager* fileMgr         = [[NSFileManager alloc] init];
         ALAsset* asset                 = nil;
         NSString* filePath;
-
+        int i = 0;
+        
         for (asset in assets) {
-		
-            int i = 0;
+            
             do {
               if( [[asset valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"] ){
                   filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"jpg"];
@@ -46,7 +46,24 @@
               }
                 
             } while ([fileMgr fileExistsAtPath:filePath]);
-            NSString* nPath = [NSString stringWithFormat: @"\"%@\"", [[NSURL fileURLWithPath:filePath] absoluteString]];
+            
+            ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];
+            [assetLibrary assetForURL:asset.defaultRepresentation.url resultBlock:^(ALAsset *asset)
+             {
+                 ALAssetRepresentation *rep = [asset defaultRepresentation];
+                 Byte *buffer = (Byte*)malloc(rep.size);
+                 NSUInteger buffered = [rep getBytes:buffer fromOffset:0 length:rep.size error:nil];
+                 NSData *data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];//this is NSData may be what you want
+                 [data writeToFile:filePath atomically:YES];//you can save image later
+             }
+                         failureBlock:^(NSError *err)
+             {
+                 NSLog(@"Error: %@",[err localizedDescription]);
+                 
+             }];
+            
+            NSString* nPath = [NSString stringWithFormat: @"\"%@\"",  filePath];
+
             [resultStrings addObject:nPath];
         }
         
@@ -63,6 +80,7 @@
         [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
     }];
 }
+
 
 - (void)uzysAssetsPickerControllerDidExceedMaximumNumberOfSelection:(UzysAssetsPickerController *)picker {
     NSString* resultString = [NSString stringWithFormat:@"Exceed Maximum number of Selection (%ld)", (long)self.maximumNumberOfSelectionMedia];
