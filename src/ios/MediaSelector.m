@@ -39,24 +39,24 @@
 		
             int i = 0;
             do {
-		if( [[asset valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"] ){
-			filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"jpg"];
-		} else {
-			filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"mov"];
-		}
+              if( [[asset valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"] ){
+                  filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"jpg"];
+              } else {
+                  filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"mov"];
+              }
                 
             } while ([fileMgr fileExistsAtPath:filePath]);
-            
-            [resultStrings addObject:[[NSURL fileURLWithPath:filePath] absoluteString]];
+            NSString* nPath = [NSString stringWidthFormat: @"\"%@\"", [[NSURL fileURLWithPath:filePath] absoluteString]];
+            [resultStrings addObject:nPath];
         }
         
         if ([resultStrings count] > 0) {
             NSString* complete = [resultStrings componentsJoinedByString:@", "];
             result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:
-                      [NSString stringWithFormat:@"{ value: true, cancelled: false, paths: [ %@ ]}", complete]];
+                      [NSString stringWithFormat:@"{\"value\":\"true\", \"cancelled\":\"false\", \"paths\":[ %@ ]}", complete]];
         } else {
             result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:
-                      @"{ value: false }"];
+                      @"{\"value\":\"false\"}"];
         }
 
         [self.viewController dismissViewControllerAnimated:YES completion:nil];
@@ -75,7 +75,7 @@
     CDVPluginResult* result;
     //user cancel
     result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:
-              @"{ value: true, cancelled: false }"];
+              @"{\"value\":\"true\", \"cancelled\":\"false\"}"];
     
     [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
 }
