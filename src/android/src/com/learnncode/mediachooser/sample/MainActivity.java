@@ -80,6 +80,8 @@ public class MainActivity extends Activity {
                     allPath[i] = adapter.getItem(i);
                 }
 
+                //initialize
+                MediaChooser.setSelectedMediaCount(0);
 				adapter.clear();
 
                 Intent data = new Intent().putExtra("all_path", allPath);

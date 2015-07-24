@@ -24,12 +24,16 @@ public class MediaSelector extends CordovaPlugin {
         this.params = args.getJSONObject(0);
         if (action.equals("getPictures")) {
             Intent intent = new Intent(cordova.getActivity(), MainActivity.class);
-            int max = 15;
+
+            int videoSize = this.params.getInt("videoSize");
+            int imageSize = this.params.getInt("imageSize");
+            int selectionLimit = this.params.getInt("selectionLimit");
             int requestCode=200;
 
-            intent.putExtra("videoSize", max);
-            intent.putExtra("imageSize", max);
-            intent.putExtra("selectionLimit", max);
+
+            intent.putExtra("videoSize", videoSize);
+            intent.putExtra("imageSize", imageSize);
+            intent.putExtra("selectionLimit", selectionLimit);
 
             if (this.cordova != null) {
                 this.cordova.startActivityForResult((CordovaPlugin) this, intent, requestCode);
