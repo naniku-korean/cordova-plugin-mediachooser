@@ -1,7 +1,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "MediaSelector.h"
 
-#define CDV_PHOTO_PREFIX @"cdv_photo_"
+#define CDV_PHOTO_PREFIX @"cmc_photo_"
+#define CDV_VIDEO_PREFIX @"cmc_video_"
 
 @implementation MediaSelector
 
@@ -37,16 +38,13 @@
         int i = 0;
         
         for (asset in assets) {
-            
-            do {
-              if( [[asset valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"] ){
-                  filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"jpg"];
-              } else {
-                  filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"mov"];
-              }
-                
-            } while ([fileMgr fileExistsAtPath:filePath]);
-            
+
+            if( [[asset valueForProperty:@"ALAssetPropertyType"] isEqualToString:@"ALAssetTypePhoto"] ){
+                filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_PHOTO_PREFIX, i++, @"jpg"];
+            } else {
+                filePath = [NSString stringWithFormat:@"%@/%@%03d.%@", docsPath, CDV_VIDEO_PREFIX, i++, @"mov"];
+            }
+
             ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];
             [assetLibrary assetForURL:asset.defaultRepresentation.url resultBlock:^(ALAsset *asset)
              {
