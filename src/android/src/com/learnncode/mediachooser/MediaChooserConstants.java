@@ -23,7 +23,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 
 
 public class MediaChooserConstants {

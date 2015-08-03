@@ -22,7 +22,7 @@ import java.io.File;
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 import com.squareup.picasso.Picasso;
 
 public class ImageLoadAsync extends MediaAsync<String,String, String>{

@@ -46,7 +46,7 @@ import android.widget.Toast;
 
 import com.learnncode.mediachooser.MediaChooser;
 import com.learnncode.mediachooser.MediaChooserConstants;
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 import com.learnncode.mediachooser.fragment.ImageFragment;
 import com.learnncode.mediachooser.fragment.VideoFragment;
 

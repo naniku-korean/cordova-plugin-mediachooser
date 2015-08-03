@@ -41,7 +41,7 @@ import android.widget.Toast;
 
 import com.learnncode.mediachooser.MediaChooserConstants;
 import com.learnncode.mediachooser.MediaModel;
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 import com.learnncode.mediachooser.adapter.GridViewAdapter;
 
 public class VideoFragment extends Fragment implements OnScrollListener {

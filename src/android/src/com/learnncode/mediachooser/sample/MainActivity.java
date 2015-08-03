@@ -34,7 +34,7 @@ import android.widget.Toast;
 import com.learnncode.mediachooser.MediaChooser;
 import com.learnncode.mediachooser.activity.BucketHomeFragmentActivity;
 import com.learnncode.mediachooser.activity.HomeFragmentActivity;
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 
 public class MainActivity extends Activity {
 

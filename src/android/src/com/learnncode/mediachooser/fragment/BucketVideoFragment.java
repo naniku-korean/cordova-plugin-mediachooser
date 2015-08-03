@@ -36,7 +36,7 @@ import android.widget.Toast;
 
 import com.learnncode.mediachooser.BucketEntry;
 import com.learnncode.mediachooser.MediaChooserConstants;
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 import com.learnncode.mediachooser.activity.HomeFragmentActivity;
 import com.learnncode.mediachooser.adapter.BucketGridAdapter;
 

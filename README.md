@@ -4,6 +4,26 @@ By Using open source <[learnNcode/MediaChooser](https://github.com/learnNcode/Me
 
 By Using open source <[uzysjung/UzysAssetsPickerController](https://github.com/uzysjung/UzysAssetsPickerController)> on iOS
 
+## CheckPoint
+안드로이드에서 플러그인 추가 후 빌드 할 경우 R.java 의 경로 오류가 발생한다.
+
+경로 수정이 필요하다. cordova package name으로 변경이 필요하다.
+'import com.naniku.mediachooser.R; -> 현재 프로젝트 package name'
+
+오류 나는 파일
+    'GalleryCache.java'
+    'MediaChooserConstants.java'
+    'BucketHomeFragmentActivity.java'
+    'HomeFragmentActivity.java'
+    'BucketGridAdapter.java'
+    'GridViewAdapter.java'
+    'ImageLoadAsync.java'
+    'BucketImageFragment.java'
+    'BucketVideoFragment.java'
+    'ImageFragment.java'
+    'VideoFragment.java'
+    'MainActivity.java'
+    'MediaGridViewAdapter.java'
 
 ## Using - Android, iOS
 Install the plugin

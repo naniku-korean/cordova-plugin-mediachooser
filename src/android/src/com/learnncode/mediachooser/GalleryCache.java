@@ -14,7 +14,7 @@ import com.learnncode.mediachooser.adapter.BucketGridAdapter;
 import com.learnncode.mediachooser.adapter.GridViewAdapter;
 import com.learnncode.mediachooser.fragment.BucketVideoFragment;
 import com.learnncode.mediachooser.fragment.VideoFragment;
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 
 
 

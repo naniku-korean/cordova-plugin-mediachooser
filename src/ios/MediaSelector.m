@@ -29,10 +29,9 @@
 - (void)uzysAssetsPickerController:(UzysAssetsPickerController *)picker didFinishPickingAssets:(NSArray *)assets
 {
     [self.commandDelegate runInBackground:^{
-        CDVPluginResult* result        = nil;
+        __block CDVPluginResult* result        = nil;
         NSMutableArray *resultStrings  = [[NSMutableArray alloc] init];
         NSString* docsPath             = [NSTemporaryDirectory()stringByStandardizingPath];
-        NSFileManager* fileMgr         = [[NSFileManager alloc] init];
         ALAsset* asset                 = nil;
         NSString* filePath;
         int i = 0;
@@ -53,6 +52,24 @@
                  NSUInteger buffered = [rep getBytes:buffer fromOffset:0 length:rep.size error:nil];
                  NSData *data = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];//this is NSData may be what you want
                  [data writeToFile:filePath atomically:YES];//you can save image later
+				 
+				 NSString* nPath = [NSString stringWithFormat: @"\"%@\"",  filePath];
+
+				[resultStrings addObject:nPath];
+
+				if([resultStrings count] == [assets count] ){
+					 if ([resultStrings count] > 0) {
+						NSString* complete = [resultStrings componentsJoinedByString:@", "];
+						result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:
+								  [NSString stringWithFormat:@"{\"value\":\"true\", \"cancelled\":\"false\", \"paths\":[ %@ ]}", complete]];
+					} else {
+						result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:
+								  @"{\"value\":\"false\"}"];
+					}
+
+					[self.viewController dismissViewControllerAnimated:YES completion:nil];
+					[self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+				}
              }
                          failureBlock:^(NSError *err)
              {
@@ -60,22 +77,10 @@
                  
              }];
             
-            NSString* nPath = [NSString stringWithFormat: @"\"%@\"",  filePath];
-
-            [resultStrings addObject:nPath];
+            
         }
         
-        if ([resultStrings count] > 0) {
-            NSString* complete = [resultStrings componentsJoinedByString:@", "];
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:
-                      [NSString stringWithFormat:@"{\"value\":\"true\", \"cancelled\":\"false\", \"paths\":[ %@ ]}", complete]];
-        } else {
-            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:
-                      @"{\"value\":\"false\"}"];
-        }
-
-        [self.viewController dismissViewControllerAnimated:YES completion:nil];
-        [self.commandDelegate sendPluginResult:result callbackId:self.callbackId];
+       
     }];
 }
 

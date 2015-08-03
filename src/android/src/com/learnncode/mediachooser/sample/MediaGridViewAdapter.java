@@ -34,7 +34,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.learnncode.mediachooser.fragment.VideoFragment;
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 
 public class MediaGridViewAdapter extends ArrayAdapter<String> {
 

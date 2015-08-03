@@ -1,12 +1,12 @@
 /*
  * Copyright 2013 - learnNcode (learnncode@gmail.com)
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -48,7 +48,7 @@ import android.widget.Toast;
 
 import com.learnncode.mediachooser.MediaChooser;
 import com.learnncode.mediachooser.MediaChooserConstants;
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 import com.learnncode.mediachooser.fragment.BucketImageFragment;
 import com.learnncode.mediachooser.fragment.BucketVideoFragment;
 
@@ -69,7 +69,7 @@ public class BucketHomeFragmentActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE); 
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_home_media_chooser);
 
 		headerBarTitle  = (TextView)findViewById(R.id.titleTextViewFromMediaChooserHeaderBar);
@@ -131,7 +131,7 @@ public class BucketHomeFragmentActivity extends FragmentActivity {
 			textView.setTextColor(getResources().getColor(R.color.tabs_title_color));
 			textView.setTextSize(convertDipToPixels(10));
 		}
-		
+
 		((TextView)(mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title))).setTextColor(getResources().getColor(R.color.headerbar_selected_tab_color));
 		((TextView)(mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title))).setTextColor(Color.WHITE);
 
@@ -152,9 +152,9 @@ public class BucketHomeFragmentActivity extends FragmentActivity {
 					headerBarCamera.setBackgroundResource(R.drawable.selector_camera_button);
 					headerBarCamera.setTag(getResources().getString(R.string.image));
 
-					if(imageFragment == null){   
+					if(imageFragment == null){
 						BucketImageFragment newImageFragment = new BucketImageFragment();
-						fragmentTransaction.add(R.id.realTabcontent, newImageFragment, "tab1"); 
+						fragmentTransaction.add(R.id.realTabcontent, newImageFragment, "tab1");
 
 					}else{
 
@@ -162,13 +162,13 @@ public class BucketHomeFragmentActivity extends FragmentActivity {
 							fragmentTransaction.hide(videoFragment);
 						}
 
-						fragmentTransaction.show(imageFragment); 
+						fragmentTransaction.show(imageFragment);
 
 					}
 					((TextView)(mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title))).setTextColor(getResources().getColor(R.color.headerbar_selected_tab_color));
 					((TextView)(mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title))).setTextColor(Color.WHITE);
 
-				}else{ 
+				}else{
 					headerBarTitle.setText(getResources().getString(R.string.video));
 					headerBarCamera.setBackgroundResource(R.drawable.selector_video_button);
 					headerBarCamera.setTag(getResources().getString(R.string.video));
@@ -176,7 +176,7 @@ public class BucketHomeFragmentActivity extends FragmentActivity {
 					if(videoFragment == null){
 
 						final BucketVideoFragment newVideoFragment = new BucketVideoFragment();
-						fragmentTransaction.add(R.id.realTabcontent, newVideoFragment, "tab2");  
+						fragmentTransaction.add(R.id.realTabcontent, newVideoFragment, "tab2");
 
 					}else{
 
@@ -184,15 +184,15 @@ public class BucketHomeFragmentActivity extends FragmentActivity {
 							fragmentTransaction.hide(imageFragment);
 						}
 
-						fragmentTransaction.show(videoFragment);   
+						fragmentTransaction.show(videoFragment);
 					}
-					
+
 					((TextView)(mTabHost.getTabWidget().getChildAt(0).findViewById(android.R.id.title))).setTextColor(Color.WHITE);
 					((TextView)(mTabHost.getTabWidget().getChildAt(1).findViewById(android.R.id.title))).setTextColor(getResources().getColor(R.color.headerbar_selected_tab_color));
 
 				}
 
-				fragmentTransaction.commit();         
+				fragmentTransaction.commit();
 			}
 		});
 
@@ -313,7 +313,7 @@ public class BucketHomeFragmentActivity extends FragmentActivity {
 						String fileUriString = fileUri.toString().replaceFirst("file:///", "/").trim();
 						android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 						BucketImageFragment bucketImageFragment = (BucketImageFragment) fragmentManager.findFragmentByTag("tab1");
-						if(bucketImageFragment != null){   
+						if(bucketImageFragment != null){
 							bucketImageFragment.getAdapter().addLatestEntry(fileUriString);
 							bucketImageFragment.getAdapter().notifyDataSetChanged();
 						}
@@ -335,7 +335,7 @@ public class BucketHomeFragmentActivity extends FragmentActivity {
 						String fileUriString = fileUri.toString().replaceFirst("file:///", "/").trim();
 						android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 						BucketVideoFragment bucketVideoFragment = (BucketVideoFragment) fragmentManager.findFragmentByTag("tab2");
-						if(bucketVideoFragment != null){   
+						if(bucketVideoFragment != null){
 							bucketVideoFragment.getAdapter().addLatestEntry(fileUriString);
 							bucketVideoFragment.getAdapter().notifyDataSetChanged();
 

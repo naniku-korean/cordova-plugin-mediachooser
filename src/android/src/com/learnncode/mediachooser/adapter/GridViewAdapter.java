@@ -29,7 +29,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout.LayoutParams;
 
 import com.learnncode.mediachooser.MediaModel;
-import com.naniku.mediachooser.R;
+import kr.co.kbs.mnrc.R;
 import com.learnncode.mediachooser.async.ImageLoadAsync;
 import com.learnncode.mediachooser.async.MediaAsync;
 import com.learnncode.mediachooser.async.VideoLoadAsync;
